@@ -7,7 +7,7 @@ const Header = () => {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <>
+    <header>
       <Navbar bg="light" expand="lg" collapseOnSelect>
         <LinkContainer to="/">
           <Navbar.Brand>JEWELRY STORE</Navbar.Brand>
@@ -34,7 +34,7 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-    </>
+    </header>
   );
 };
 

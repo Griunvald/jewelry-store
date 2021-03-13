@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import StorePage from './pages/StorePage';
 import AboutPage from './pages/AboutPage';
 import CartPage from './pages/CartPage';
@@ -11,10 +12,13 @@ const App = () => {
   return (
     <>
       <Header />
-      <Route path="/" exact component={StorePage} />
-      <Route path="/about" component={AboutPage} />
-      <Route path="/cart" component={CartPage} />
-      <Route path="/signup" component={SignupPage} />
+      <main>
+        <Route path="/" exact component={StorePage} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/cart" component={CartPage} />
+        <Route path="/signup" component={SignupPage} />
+      </main>
+      <Footer />
     </>
   );
 };

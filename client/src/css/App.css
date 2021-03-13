@@ -5,3 +5,24 @@
 .navbar-brand {
   font-size: 26px !important;
 }
+main {
+  min-height: 84vh;
+}
+.navbar-light .navbar-toggler {
+  border-color: none;
+}
+
+@media only screen and (min-width: 767px) {
+  main {
+    min-height: 88vh;
+  }
+}
+
+/* footer */
+
+.footer-link {
+  color: rgb(123, 122, 120) !important;
+}
+.footer-link:hover {
+  color: #000 !important;
+}
