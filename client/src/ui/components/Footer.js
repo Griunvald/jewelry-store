@@ -49,27 +49,27 @@ const Footer = () => {
           <Nav className="nav " defaultActiveKey="/home" as="ul">
             <Nav.Item as="li">
               <Nav.Link className="footer-link" href="/home">
-                <TiSocialInstagram size="18px" />
+                <TiSocialInstagram size="22px" />
               </Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
               <Nav.Link className="footer-link" eventKey="link-1">
-                <TiSocialPinterest size="18px" />
+                <TiSocialPinterest size="22px" />
               </Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
               <Nav.Link className="footer-link" eventKey="link-2">
-                <TiSocialTwitter size="18px" />
+                <TiSocialTwitter size="22px" />
               </Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
               <Nav.Link className="footer-link" eventKey="link-3">
-                <TiSocialFacebook size="18px" />
+                <TiSocialFacebook size="22px" />
               </Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
               <Nav.Link className="footer-link" eventKey="link-4">
-                <TiSocialYoutube size="18px" />
+                <TiSocialYoutube size="22px" />
               </Nav.Link>
             </Nav.Item>
           </Nav>
