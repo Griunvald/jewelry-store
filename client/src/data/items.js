@@ -6,7 +6,7 @@ const items = [
     image: '/images/image_1.jpg',
     description: `This pair of splendid and festive earrings is composed from two individually crafted lamp work glass beads. Large cobalt bead decorated with silver dots that give the earrings a touch of luxury. Every bead is unique so they may differ slightly from each other.
     
-    For this pair I used elegant, niobium hook(hypoallergenic), these hooks are a soft grey, with a hint of gloss, they are accented with 3mm Sterling Silver balls.
+    For this pair I used elegant, niobium hook (hypoallergenic), these hooks are a soft grey, with a hint of gloss, they are accented with 3mm Sterling Silver balls.
     
     All beads are handmade by me using quality Italian and American glass in open fire of the torch, annealed in digitally controlled kiln for strength and durability and thoroughly cleaned.`,
     details: [
@@ -27,7 +27,7 @@ const items = [
     id: 2,
     title: 'Lampwork beads earrings, Glass earrings , Dangle boho earrings',
     image: '/images/image_2.jpg',
-    description: `Fairy, colourful set of lampwork earrings with a touch of boho style. This pair of earrings is composed from three(each one) individually crafted lampwork glass beads. Every glass bead is unique so they may differ slightly from each other.
+    description: `Fairy, colourful set of lampwork earrings with a touch of boho style. This pair of earrings is composed from three (each one) individually crafted lampwork glass beads. Every glass bead is unique so they may differ slightly from each other.
     
     For this pair I used grey niobium french hook ear wires(hypoallergenic) and other quality supplies by Tierracast.
     
@@ -52,9 +52,9 @@ const items = [
     title:
       'Glass bead earrings, Lampwork earrings, Dangle earrings with lampwork beads, Fashion glass earrings, Boho style earrings',
     image: '/images/image_3.jpg',
-    description: `This pair of cute, cheerful earrings will make your day brighter, is composed from three(each one) individually crafted lamp work glass beads. Every bead is unique so they may differ slightly from each other.
+    description: `This pair of cute, cheerful earrings will make your day brighter, is composed from three (each one) individually crafted lamp work glass beads. Every bead is unique so they may differ slightly from each other.
     
-    For this pair I used elegant, dark antique matte silver tall French hook(Lead&Nickel free) and other quality supplies by Tierracast.
+    For this pair I used elegant, dark antique matte silver tall French hook (Lead&Nickel free) and other quality supplies by Tierracast.
     
     All beads are handmade by me using quality Italian and American glass in open fire of the torch, annealed in digitally controlled kiln for strength and durability and thoroughly cleaned.`,
     details: [
@@ -76,9 +76,9 @@ const items = [
     id: 4,
     title: 'Lampwork beads earrings, Dangle glass earrings, boho earrings',
     image: '/images/image_4.jpg',
-    description: `Original and bright set of earrings, for bright woman:) This pair earrings is composed from three(each one) individually crafted lampwork glass beads. Every bead is unique so they may differ slightly from each other.
+    description: `Original and bright set of earrings, for bright woman :) This pair earrings is composed from three (each one) individually crafted lampwork glass beads. Every bead is unique so they may differ slightly from each other.
     
-    For this pair I used elegant, dark antique matte silver tall French hook(Lead&Nickel free) and other quality supplies by Tierracast.
+    For this pair I used elegant, dark antique matte silver tall French hook (Lead&Nickel free) and other quality supplies by Tierracast.
     
     All beads are handmade by me using quality Italian and American glass in open fire of the torch, annealed in digitally controlled kiln for strength and durability and thoroughly cleaned.`,
     details: [
@@ -103,7 +103,7 @@ const items = [
     image: '/images/image_5.jpg',
     description: `Cute and bright small set of lampwork glass earrings for every day. This pair of earrings is composed from individually crafted drop shaped lampwork beads. Every bead is unique so they may differ slightly from each other.
     
-    For this pair I used elegant, dark antique matte silver tall French hook(Lead&Nickel free) and other quality supplies by Tierracast.
+    For this pair I used elegant, dark antique matte silver tall French hook (Lead&Nickel free) and other quality supplies by Tierracast.
     
     All beads are handmade by me using quality Italian and American glass in open fire of the torch, annealed in digitally controlled kiln for strength and durability and thoroughly cleaned.`,
     details: [
