@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
   const truncate = (str, num) =>
@@ -7,7 +8,14 @@ const Item = ({ item }) => {
   return (
     <div style={{ display: 'flex' }}>
       <Card className="my-3 rounded" style={{ width: '300px', flex: 1 }}>
-        <Card.Img variant="top" src={item.image} />
+        <Link
+          to={`/item/${item.id}`}
+          data-toggle="tooltip"
+          data-placement="right"
+          title={item.title}
+        >
+          <Card.Img variant="top" src={item.image} />
+        </Link>
         <Card.Body>
           <Card.Title>{truncate(item.title, 30)}</Card.Title>
           <div>${item.price}</div>
