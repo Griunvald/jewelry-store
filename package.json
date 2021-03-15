@@ -1,0 +1,26 @@
+{
+  "name": "jewelry_store",
+  "version": "1.0.0",
+  "description": "Jewelry shop e-commerce web app",
+  "main": "index.js",
+  "scripts": {
+    "dev":"nodemon ./server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Griunvald/jewelry-store.git"
+  },
+  "author": "Vitali Griunvald",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Griunvald/jewelry-store/issues"
+  },
+  "homepage": "https://github.com/Griunvald/jewelry-store#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "http-errors": "^1.8.0",
+    "morgan": "^1.10.0"
+  }
+}
