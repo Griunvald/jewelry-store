@@ -145,4 +145,4 @@ const items = [
     type: 'earrings',
   },
 ];
-export default items;
+module.exports = items;

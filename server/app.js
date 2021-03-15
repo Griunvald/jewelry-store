@@ -5,6 +5,8 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const createError = require('http-errors');
 
+const items = require('./data/items');
+
 const error = require('./middleware/error_middleware');
 
 app.use(helmet());
@@ -12,8 +14,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true, useUnifiedTopology: true }));
 app.use(morgan('dev'));
 
-app.get('/', (req, res) => {
-  res.json({ message: 'Response from server!' });
+app.get('/api/items', (req, res) => {
+  res.json(items);
+});
+
+app.get('/api/items/:id', (req, res) => {
+  const item = items.find((item) => item.id == req.params.id);
+  res.json(item);
 });
 
 app.all('*', (req, res, next) => {
