@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import items from '../../data/items';
+import Like from '../components/Like';
 import { Row, Col, Container, Image, ListGroup, Button } from 'react-bootstrap';
-import { BsHeart, BsHeartFill } from 'react-icons/bs';
 
 const ItemDetailsPage = () => {
   const url = window.location.href;
@@ -10,16 +10,12 @@ const ItemDetailsPage = () => {
 
   const item = items.find((item) => item.id === Number(id));
 
-  const [like, setLike] = useState(false);
-
   return (
     <Container>
       <Row>
         <Col lg={7}>
           <div className="image-container">
-            <div className="heart-component" onClick={() => setLike(!like)}>
-              {like ? <BsHeartFill /> : <BsHeart />}
-            </div>
+            <Like />
             <Image src={item.image} className="img-fluid" rounded />
           </div>
         </Col>
