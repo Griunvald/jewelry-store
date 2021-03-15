@@ -17,7 +17,7 @@ const items = [
       'Closure: Ear wire',
     ],
     price: '35',
-    inStock: true,
+    inStock: false,
     rating: '0',
     review: '',
     colors: ['blue', 'green'],

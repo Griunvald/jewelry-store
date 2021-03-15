@@ -21,13 +21,26 @@ const ItemDetailsPage = () => {
             <h4 style={{ float: 'left' }}>
               <strong>${item.price}</strong>
             </h4>
-            <p style={{ float: 'right' }}>
-              {item.inStock ? ' in stock' : 'out of stock'}
+            <p style={{ float: 'right' }} className="in-stock">
+              {item.inStock ? ' In stock' : 'Sold'}
             </p>
           </div>
-          <Button block size="lg" variant="dark" className="cart-button">
-            Add to cart
-          </Button>
+          {item.inStock ? (
+            <Button block size="lg" variant="dark" className="cart-button">
+              Add to cart
+            </Button>
+          ) : (
+            <Button
+              block
+              size="lg"
+              variant="dark"
+              className="cart-button"
+              disabled
+            >
+              Add to cart
+            </Button>
+          )}
+
           <p className="item-details-title">Description</p>
           <p className="new-line">{item.description}</p>
           <p className="item-details-title">Item details</p>

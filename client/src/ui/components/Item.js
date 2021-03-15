@@ -7,7 +7,10 @@ const Item = ({ item }) => {
     str.length > num ? str.slice(0, num > 34 ? num - 3 : num) + '...' : str;
   return (
     <div style={{ display: 'flex' }}>
-      <Card className="my-3 rounded" style={{ width: '300px', flex: 1 }}>
+      <Card
+        className="my-3 card-shadow rounded"
+        style={{ width: '300px', flex: 1 }}
+      >
         <Link
           to={`/item/${item.id}`}
           data-toggle="tooltip"
@@ -18,7 +21,7 @@ const Item = ({ item }) => {
         </Link>
         <Card.Body>
           <Card.Title>{truncate(item.title, 30)}</Card.Title>
-          <div>${item.price}</div>
+          <div className="price-card">${item.price}</div>
         </Card.Body>
       </Card>
     </div>
