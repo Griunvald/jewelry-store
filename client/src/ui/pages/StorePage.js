@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import Item from '../components/Item';
-import items from '../../data/items';
+import axios from 'axios';
 
 const StorePage = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const getItems = async () => {
+      const { data } = await axios.get('/api/items');
+      setItems(data);
+    };
+    getItems();
+  }, []);
   return (
     <Container>
       <Row>

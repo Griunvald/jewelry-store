@@ -1,14 +1,18 @@
-import React from 'react';
-import items from '../../data/items';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import Like from '../components/Like';
 import { Row, Col, Container, Image, ListGroup, Button } from 'react-bootstrap';
 
-const ItemDetailsPage = () => {
-  const url = window.location.href;
-  const id = url.split('/').pop();
-  console.log(id);
+const ItemDetailsPage = ({ match }) => {
+  const [item, setItem] = useState({});
 
-  const item = items.find((item) => item.id === Number(id));
+  useEffect(() => {
+    const getItem = async () => {
+      const { data } = await axios.get(`/api/items/${match.params.id}`);
+      setItem(data);
+    };
+    getItem();
+  }, [match]);
 
   return (
     <Container>
@@ -48,7 +52,7 @@ const ItemDetailsPage = () => {
           <p className="item-details-title">Description</p>
           <p className="new-line">{item.description}</p>
           <p className="item-details-title">Item details</p>
-          {item.details.map((listItem, i) => (
+          {item.details?.map((listItem, i) => (
             <ListGroup variant="flush" key={i}>
               <ListGroup.Item>{listItem}</ListGroup.Item>
             </ListGroup>
