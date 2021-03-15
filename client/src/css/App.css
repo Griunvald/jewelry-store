@@ -80,3 +80,17 @@ p{
 .card-shadow:hover {
   box-shadow: 0 0 11px rgba(29, 29, 29, 0.2); 
 }
+
+/* like button on image */
+.image-container {
+  position: relative !important;
+  text-align: center !important;
+  color:white !important;
+}
+
+.heart-component {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+ font-size: 40px;
+}
