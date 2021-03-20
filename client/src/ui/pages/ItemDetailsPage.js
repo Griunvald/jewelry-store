@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getItemDetails } from '../../store/actions/itemActions';
+import { addToCart } from '../../store/actions/cartActions';
 import Like from '../components/Like';
 import { Row, Col, Container, Image, ListGroup, Button } from 'react-bootstrap';
 
@@ -38,7 +39,13 @@ const ItemDetailsPage = ({ match }) => {
               </p>
             </div>
             {item.inStock ? (
-              <Button block size="lg" variant="dark" className="cart-button">
+              <Button
+                block
+                size="lg"
+                variant="dark"
+                className="cart-button"
+                onClick={() => dispatch(addToCart(match.params.id))}
+              >
                 Add to cart
               </Button>
             ) : (
