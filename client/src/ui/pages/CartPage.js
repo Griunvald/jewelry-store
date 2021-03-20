@@ -1,4 +1,8 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { TiDelete } from 'react-icons/ti';
+import { removeFromCart } from '../../store/actions/cartActions';
 import {
   ListGroup,
   Row,
@@ -8,16 +12,16 @@ import {
   Button,
   Container,
 } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { TiDelete } from 'react-icons/ti';
 
 const CartPage = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const getTotal = (arr, prop) => {
     const sum = arr.reduce((acc, item) => acc + Number(item[prop]), 0);
     return sum;
+  };
+  const removeItemHandler = (id) => {
+    dispatch(removeFromCart(id));
   };
 
   return (
@@ -41,7 +45,10 @@ const CartPage = () => {
                     </Col>
                     <Col lg={1}>${item.price}</Col>
                     <Col lg={1}>
-                      <TiDelete size={'22px'} />
+                      <TiDelete
+                        size={'22px'}
+                        onClick={() => removeItemHandler(item.item)}
+                      />
                     </Col>
                   </Row>
                 </ListGroup.Item>
