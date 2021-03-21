@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const createError = require('http-errors');
 const authRouter = require('./routes/authRoutes');
+const mongoose = require('mongoose');
 
 const items = require('./data/items');
 
@@ -31,5 +32,11 @@ app.all('*', (req, res, next) => {
 });
 
 app.use(error);
+mongoose.connect('mongodb://localhost:27017/jewelry_store', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
 
 module.exports = app;
