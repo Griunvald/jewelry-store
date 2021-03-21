@@ -12,7 +12,7 @@ const Item = ({ item }) => {
         style={{ width: '300px', flex: 1 }}
       >
         <Link
-          to={`/item/${item.id}`}
+          to={`/item/${item._id}`}
           data-toggle="tooltip"
           data-placement="right"
           title={item.title}

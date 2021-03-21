@@ -8,7 +8,7 @@ import axios from 'axios';
 
 export const getItemsList = () => async (dispatch) => {
   try {
-    const { data } = await axios.get('/api/items');
+    const { data } = await axios.get('/api/v1/items');
     dispatch({ type: ITEMS_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -23,7 +23,7 @@ export const getItemsList = () => async (dispatch) => {
 
 export const getItemDetails = (id) => async (dispatch) => {
   try {
-    const { data } = await axios.get(`/api/items/${id}`);
+    const { data } = await axios.get(`/api/v1/items/${id}`);
     dispatch({ type: ITEM_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

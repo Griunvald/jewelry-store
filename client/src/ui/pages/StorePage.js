@@ -21,7 +21,7 @@ const StorePage = () => {
       ) : (
         <Row>
           {items.map((item) => (
-            <Col key={item.id} sm={12} md={4} lg={4} xl={3}>
+            <Col key={item._id} sm={12} md={4} lg={4} xl={3}>
               <Item item={item} />
             </Col>
           ))}
