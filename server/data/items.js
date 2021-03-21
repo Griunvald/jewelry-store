@@ -1,6 +1,5 @@
 const items = [
   {
-    id: 1,
     title:
       'Lampwork beads earrings, Dangle glass bead earrings, Dark blue and emerald green glass earrings',
     image: '/images/image_1.jpg',
@@ -24,7 +23,6 @@ const items = [
     type: 'earrings',
   },
   {
-    id: 2,
     title: 'Lampwork beads earrings, Glass earrings , Dangle boho earrings',
     image: '/images/image_2.jpg',
     description: `Fairy, colourful set of lampwork earrings with a touch of boho style. This pair of earrings is composed from three (each one) individually crafted lampwork glass beads. Every glass bead is unique so they may differ slightly from each other.
@@ -48,7 +46,6 @@ const items = [
     type: 'earrings',
   },
   {
-    id: 3,
     title:
       'Glass bead earrings, Lampwork earrings, Dangle earrings with lampwork beads, Fashion glass earrings, Boho style earrings',
     image: '/images/image_3.jpg',
@@ -73,7 +70,6 @@ const items = [
     type: 'earrings',
   },
   {
-    id: 4,
     title: 'Lampwork beads earrings, Dangle glass earrings, boho earrings',
     image: '/images/image_4.jpg',
     description: `Original and bright set of earrings, for bright woman :) This pair earrings is composed from three (each one) individually crafted lampwork glass beads. Every bead is unique so they may differ slightly from each other.
@@ -97,7 +93,6 @@ const items = [
     type: 'earrings',
   },
   {
-    id: 5,
     title:
       'Glass bead earrings, Lampwork earrings, Dangle glass earrings, Boho style earrings',
     image: '/images/image_5.jpg',
@@ -121,7 +116,6 @@ const items = [
     type: 'earrings',
   },
   {
-    id: 6,
     title:
       'Lampwork glass earrings, Dangle glass beads earrings, Bohemian Glass earrings',
     image: '/images/image_6.jpg',
