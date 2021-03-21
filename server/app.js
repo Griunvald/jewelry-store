@@ -4,6 +4,7 @@ const app = express();
 const helmet = require('helmet');
 const morgan = require('morgan');
 const createError = require('http-errors');
+const authRouter = require('./routes/authRoutes');
 
 const items = require('./data/items');
 
@@ -22,6 +23,8 @@ app.get('/api/items/:id', (req, res) => {
   const item = items.find((item) => item.id == req.params.id);
   res.json(item);
 });
+
+app.use('/api/v1/users', authRouter);
 
 app.all('*', (req, res, next) => {
   return next(createError(404, 'Oops! Page not found.'));
