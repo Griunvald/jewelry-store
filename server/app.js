@@ -5,16 +5,17 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const createError = require('http-errors');
 const authRouter = require('./routes/authRoutes');
-const mongoose = require('mongoose');
+const connectDB = require('./config/db');
 
 const items = require('./data/items');
-
 const error = require('./middleware/error_middleware');
 
 app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, useUnifiedTopology: true }));
 app.use(morgan('dev'));
+
+connectDB();
 
 app.get('/api/items', (req, res) => {
   res.json(items);
@@ -32,11 +33,5 @@ app.all('*', (req, res, next) => {
 });
 
 app.use(error);
-mongoose.connect('mongodb://localhost:27017/jewelry_store', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-});
 
 module.exports = app;
