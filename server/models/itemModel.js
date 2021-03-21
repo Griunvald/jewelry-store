@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const reviewSchema = mongoose.Schema(
   {
@@ -48,7 +48,7 @@ const itemSchema = mongoose.Schema(
     },
     numReviews: {
       type: Number,
-      required: true,
+      // required: true,
     },
     price: {
       type: Number,
@@ -65,4 +65,4 @@ const itemSchema = mongoose.Schema(
 );
 
 const Item = mongoose.model('item', itemSchema);
-export default Item;
+module.exports = Item;
