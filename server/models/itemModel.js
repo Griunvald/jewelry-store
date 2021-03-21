@@ -55,8 +55,9 @@ const itemSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
-    InStock: {
+    inStock: {
       type: Boolean,
+      default: true,
     },
   },
   {
