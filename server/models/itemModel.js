@@ -40,6 +40,7 @@ const itemSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    details: [String],
     reviews: [reviewSchema],
     rating: {
       type: Number,
