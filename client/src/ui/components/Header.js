@@ -27,8 +27,8 @@ const Header = () => {
             <LinkContainer to="/cart">
               <Nav.Link onClick={() => setOpen(false)}>CART</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/signup">
-              <Nav.Link onClick={() => setOpen(false)}>SIGN UP</Nav.Link>
+            <LinkContainer to="/login">
+              <Nav.Link onClick={() => setOpen(false)}>LOG IN</Nav.Link>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
