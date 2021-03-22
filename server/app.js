@@ -3,15 +3,17 @@ const app = express();
 const helmet = require('helmet');
 const morgan = require('morgan');
 const createError = require('http-errors');
+const cookieParser = require('cookie-parser');
+
 const authRouter = require('./routes/authRoutes');
 const itemRouter = require('./routes/itemRoutes');
 const connectDB = require('./config/db');
-
 const error = require('./middleware/error_middleware');
 
 app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, useUnifiedTopology: true }));
+app.use(cookieParser());
 app.use(morgan('dev'));
 
 connectDB();
