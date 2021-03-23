@@ -13,7 +13,7 @@ import {
   Container,
 } from 'react-bootstrap';
 
-const CartPage = () => {
+const CartPage = ({ history }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const getTotal = (arr, prop) => {
@@ -22,6 +22,10 @@ const CartPage = () => {
   };
   const removeItemHandler = (id) => {
     dispatch(removeFromCart(id));
+  };
+
+  const checkoutHandler = () => {
+    history.push('/login?redirect=shipping');
   };
 
   return (
@@ -74,6 +78,7 @@ const CartPage = () => {
                   size="lg"
                   block
                   disabled={cartItems.length === 0}
+                  onClick={checkoutHandler}
                 >
                   Proceed To Checkout
                 </Button>
