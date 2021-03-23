@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
 const userSchema = mongoose.Schema(
   {
@@ -18,11 +17,6 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
       minlength: 8,
-      select: false,
-    },
-    token: {
-      type: String,
-      required: true,
     },
     isAdmin: {
       type: Boolean,
@@ -35,57 +29,18 @@ const userSchema = mongoose.Schema(
   }
 );
 
-userSchema.pre('save', function (next) {
-  var user = this;
+userSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
 
-  if (user.isModified('password')) {
-    bcrypt.hash(user.password, 10, function (err, hash) {
-      if (err) return next(err);
-      user.password = hash;
-      next();
-    });
-  } else {
+userSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) {
     next();
   }
+
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
 });
-
-userSchema.methods.comparePassword = function (candidatePassword, cb) {
-  var user = this;
-  bcrypt.compare(candidatePassword, user.password, function (err, isMatch) {
-    if (err) return cb(err);
-    cb(null, isMatch);
-  });
-};
-
-userSchema.methods.generateToken = function (cb) {
-  var user = this;
-  const token = jwt.sign(user.id, process.env.TOKEN_SECRET);
-  user.token = token;
-  user.save(function (err, user) {
-    if (err) return cb(err);
-    cb(null, user);
-  });
-};
-
-userSchema.statics.findByToken = function (token, cb) {
-  var user = this;
-
-  jwt.verify(token, process.env.TOKEN_SECRET, (err, decoded) => {
-    if (err) return cb(err);
-    user.findOne({ _id: decoded }, (err, user) => {
-      if (err) return cb(err);
-      cb(null, user);
-    });
-  });
-};
-
-userSchema.methods.deleteToken = function (token, cb) {
-  var user = this;
-  user.updateOne({ $unset: { token: 1 } }, (err, user) => {
-    if (err) return cb(err);
-    cb(null, user);
-  });
-};
 
 const User = mongoose.model('user', userSchema);
 

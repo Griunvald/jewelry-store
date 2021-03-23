@@ -1,45 +1,58 @@
-const User = require('../models/userModel');
+const jwt = require('jsonwebtoken');
+const Async = require('express-async-handler');
+const User = require('../models/userModel.js');
 
-module.exports = {
-  // Signup
-  signup(req, res) {
-    const user = new User({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      token: 'token',
-    });
-    user.save((err, doc) => {
-      if (err) res.status(400).send(err);
-      res.status(200).send(doc);
-    });
-  },
-
-  // Login
-  login(req, res) {
-    User.findOne({ email: req.body.email }, (err, user) => {
-      if (!user) return res.json({ message: 'User not found' });
-      user.comparePassword(req.body.password, (err, isMatch) => {
-        if (err) throw err;
-        if (!isMatch)
-          return res.status(400).json({
-            message: 'Wrong password',
-          });
-        user.generateToken((err, user) => {
-          if (err) return res.status(400).send(err);
-          res
-            .cookie('auth', user.token)
-            .json({ message: 'Successfully logged in' });
-        });
-      });
-    });
-  },
-
-  // Logout
-  logout(req, res) {
-    req.user.deleteToken(req.token, (err, user) => {
-      if (err) return res.status(400).json(err);
-      res.status(200).json({ message: 'User is logged out' });
-    });
-  },
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: '30d',
+  });
 };
+
+exports.login = Async(async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = await User.findOne({ email });
+
+  if (user && (await user.matchPassword(password))) {
+    res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(401);
+    throw new Error('Invalid email or password');
+  }
+});
+
+exports.signup = Async(async (req, res) => {
+  const { name, email, password } = req.body;
+
+  const userExists = await User.findOne({ email });
+
+  if (userExists) {
+    res.status(400);
+    throw new Error('User already exists');
+  }
+
+  const user = await User.create({
+    name,
+    email,
+    password,
+  });
+
+  if (user) {
+    res.status(201).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(400);
+    throw new Error('Invalid user data');
+  }
+});
