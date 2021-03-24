@@ -9,7 +9,7 @@ export const login = (email, password) => async (dispatch) => {
       password,
     });
     dispatch({ type: LOGIN_SUCCESS, payload: data });
-    localStorage.setItem('userInfo', JSON.stringify(data));
+    localStorage.setItem('currentUser', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: LOGIN_ERROR,

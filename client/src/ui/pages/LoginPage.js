@@ -10,7 +10,7 @@ const SignupPage = ({ location, history }) => {
 
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
-  const { loading, error, userInfo } = auth;
+  const { loading, error, currentUser } = auth;
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -20,10 +20,10 @@ const SignupPage = ({ location, history }) => {
   const redirect = location.search ? location.search.split('=')[1] : '/';
 
   useEffect(() => {
-    if (userInfo) {
+    if (currentUser) {
       history.push(redirect);
     }
-  }, [history, userInfo, redirect]);
+  }, [history, currentUser, redirect]);
 
   return (
     <Container className="d-flex justify-content-center">

@@ -7,13 +7,13 @@ const localStorageCart = localStorage.getItem('cartItems')
   ? JSON.parse(localStorage.getItem('cartItems'))
   : [];
 
-const localStorageUserInfo = localStorage.getItem('userInfo')
-  ? JSON.parse(localStorage.getItem('userInfo'))
+const localStoragecurrentUser = localStorage.getItem('currentUser')
+  ? JSON.parse(localStorage.getItem('currentUser'))
   : null;
 
 const initialState = {
   cart: { cartItems: localStorageCart },
-  auth: { userInfo: localStorageUserInfo },
+  auth: { currentUser: localStoragecurrentUser },
 };
 const store = () => {
   const store = createStore(

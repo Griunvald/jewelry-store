@@ -10,7 +10,7 @@ export const authReducer = (state = {}, action) => {
     case LOGIN_REQUEST:
       return { loading: true };
     case LOGIN_SUCCESS:
-      return { loading: false, userInfo: action.payload };
+      return { loading: false, currentUser: action.payload };
     case LOGIN_ERROR:
       return { loading: false, error: action.payload };
     case LOGOUT_SUCCESS:
