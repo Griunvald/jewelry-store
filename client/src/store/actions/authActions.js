@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN_SUCCESS, LOGIN_ERROR, LOGIN_REQUEST } from '../types';
+import { LOGIN_SUCCESS, LOGIN_ERROR, LOGIN_REQUEST, LOGOUT } from '../types';
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -19,4 +19,9 @@ export const login = (email, password) => async (dispatch) => {
           : error.message,
     });
   }
+};
+
+export const logout = () => (dispatch) => {
+  localStorage.removeItem('currentUser');
+  dispatch({ type: LOGOUT });
 };

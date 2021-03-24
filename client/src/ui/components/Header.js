@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
+import { logout } from '../../store/actions/authActions';
 import Hamburger from 'hamburger-react';
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
+  const { currentUser } = auth;
+
   return (
     <header>
       <Navbar bg="light" expand="lg" collapseOnSelect>
@@ -27,9 +33,20 @@ const Header = () => {
             <LinkContainer to="/cart">
               <Nav.Link onClick={() => setOpen(false)}>CART</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/login">
-              <Nav.Link onClick={() => setOpen(false)}>LOG IN</Nav.Link>
-            </LinkContainer>
+            {currentUser ? (
+              <NavDropdown title={currentUser.name} id="username">
+                <LinkContainer to="/profile">
+                  <NavDropdown.Item>Profile</NavDropdown.Item>
+                </LinkContainer>
+                <NavDropdown.Item onClick={() => dispatch(logout())}>
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            ) : (
+              <LinkContainer to="/login">
+                <Nav.Link onClick={() => setOpen(false)}>LOG IN</Nav.Link>
+              </LinkContainer>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
