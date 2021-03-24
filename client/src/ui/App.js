@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage';
 import CartPage from './pages/CartPage';
 import ItemDetailsPage from './pages/ItemDetailsPage';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 import '../css/App.css';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/about" component={AboutPage} />
         <Route path="/cart" component={CartPage} />
         <Route path="/login" component={LoginPage} />
+        <Route path="/register" component={RegisterPage} />
         <Route path="/item/:id" component={ItemDetailsPage} />
       </main>
       <Footer />

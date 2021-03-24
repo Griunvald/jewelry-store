@@ -32,6 +32,7 @@ export const register = (name, email, password) => async (dispatch) => {
   try {
     dispatch({ type: REGISTER_REQUEST });
     const { data } = await axios.post('/api/v1/users/signup', {
+      name,
       email,
       password,
     });
