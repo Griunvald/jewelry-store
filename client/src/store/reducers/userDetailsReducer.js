@@ -4,7 +4,7 @@ import {
   USER_DETAILS_ERROR,
 } from '../types';
 
-export const userReducer = (state = { user: {} }, action) => {
+export const userDetailsReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case USER_DETAILS_REQUEST:
       return { ...state, loading: true };
