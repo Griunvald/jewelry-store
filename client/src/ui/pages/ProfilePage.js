@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Form, Button, Col, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserDetails } from '../../store/actions/userActions';
+import {
+  getUserDetails,
+  updateUserProfile,
+} from '../../store/actions/userActions';
 
 const ProfilePage = ({ location, history }) => {
   const [name, setName] = useState('');
@@ -16,8 +19,12 @@ const ProfilePage = ({ location, history }) => {
   const auth = useSelector((state) => state.auth);
   const { currentUser } = auth;
 
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
+  const { success } = userUpdateProfile;
+
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(updateUserProfile({ id: currentUser._id, name, email, password }));
   };
 
   useEffect(() => {
@@ -38,7 +45,7 @@ const ProfilePage = ({ location, history }) => {
       <Row>
         <Col lg={3}>
           <h2>User Profile</h2>
-
+          {success && <h3>profile updated</h3>}
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">
               <Form.Label>Name</Form.Label>
