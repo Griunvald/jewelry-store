@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {
+  LOGIN_SUCCESS,
   USER_DETAILS_REQUEST,
   USER_DETAILS_SUCCESS,
   USER_DETAILS_ERROR,
@@ -44,6 +45,8 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     });
 
     dispatch({ type: USER_UPDATE_PROFILE_SUCCESS, payload: data });
+    dispatch({ type: LOGIN_SUCCESS, payload: data });
+    localStorage.setItem('currentUser', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_UPDATE_PROFILE_ERROR,

@@ -29,6 +29,9 @@ export const userUpdateProfileReducer = (state = {}, action) => {
       return { loading: false, success: true, currentUser: action.payload };
     case USER_UPDATE_PROFILE_ERROR:
       return { loading: false, error: action.payload };
+    case USER_UPDATE_PROFILE_RESET:
+      return {};
+
     default:
       return state;
   }

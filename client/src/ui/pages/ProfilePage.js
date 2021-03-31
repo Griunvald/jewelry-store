@@ -5,6 +5,7 @@ import {
   getUserDetails,
   updateUserProfile,
 } from '../../store/actions/userActions';
+import { USER_UPDATE_PROFILE_RESET } from '../../store/types';
 
 const ProfilePage = ({ location, history }) => {
   const [name, setName] = useState('');
@@ -31,14 +32,15 @@ const ProfilePage = ({ location, history }) => {
     if (!currentUser) {
       history.push('/login');
     } else {
-      if (!user.name) {
+      if (!user || !user.name || success) {
+        dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails('profile'));
       } else {
         setName(user.name);
         setEmail(user.email);
       }
     }
-  }, [dispatch, history, currentUser, user]);
+  }, [dispatch, history, currentUser, user, success]);
 
   return (
     <Container>
