@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Form, Button, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveShippingAddress } from '../../store/actions/cartActions';
+import CheckoutSteps from '../components/CheckoutSteps';
 
 const ShippingPage = ({ history }) => {
   const cart = useSelector((state) => state.cart);
@@ -21,6 +22,7 @@ const ShippingPage = ({ history }) => {
   return (
     <Container className="d-flex justify-content-center">
       <Col xs={12} md={6}>
+        <CheckoutSteps step1 step2 />
         <h2>Shipping</h2>
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="address">
