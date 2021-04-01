@@ -7,13 +7,20 @@ const localStorageCart = localStorage.getItem('cartItems')
   ? JSON.parse(localStorage.getItem('cartItems'))
   : [];
 
-const localStoragecurrentUser = localStorage.getItem('currentUser')
+const localStorageCurrentUser = localStorage.getItem('currentUser')
   ? JSON.parse(localStorage.getItem('currentUser'))
   : null;
 
+const localStorageShippingAddress = localStorage.getItem('shippingAddress')
+  ? JSON.parse(localStorage.getItem('shippingAddress'))
+  : {};
+
 const initialState = {
-  cart: { cartItems: localStorageCart },
-  auth: { currentUser: localStoragecurrentUser },
+  cart: {
+    cartItems: localStorageCart,
+    shippingAddress: localStorageShippingAddress,
+  },
+  auth: { currentUser: localStorageCurrentUser },
 };
 const store = () => {
   const store = createStore(

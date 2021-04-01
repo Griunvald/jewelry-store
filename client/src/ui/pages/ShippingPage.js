@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
-import { Container, Form, Button, Col, Row } from 'react-bootstrap';
+import { Container, Form, Button, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import { saveShippingAddress } from '../../store/actions/cartActions';
 
 const ShippingPage = ({ history }) => {
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [postalCode, setPostalCode] = useState('');
-  const [country, setCountry] = useState('');
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const { shippingAddress } = cart;
+
+  const [address, setAddress] = useState(shippingAddress.address || '');
+  const [city, setCity] = useState(shippingAddress.city || '');
+  const [postalCode, setPostalCode] = useState(
+    shippingAddress.postalCode || ''
+  );
+  const [country, setCountry] = useState(shippingAddress.country || '');
   const submitHandler = () => {
-    //
+    dispatch(saveShippingAddress({ address, city, postalCode, country }));
+    history.push('/payment');
   };
   return (
     <Container className="d-flex justify-content-center">
@@ -41,7 +49,7 @@ const ShippingPage = ({ history }) => {
             <Form.Label>Postal Code</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Enter your postalCode"
+              placeholder="Enter your Postal Code"
               value={postalCode}
               required
               onChange={(e) => setPostalCode(e.target.value)}
