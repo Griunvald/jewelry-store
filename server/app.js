@@ -23,6 +23,10 @@ app.use('/api/v1/items', itemRouter);
 app.use('/api/v1/users', authRouter);
 app.use('/api/v1/orders', orderRouter);
 
+app.get('/api/v1/config/paypal', (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID);
+});
+
 app.all('*', (req, res, next) => {
   return next(createError(404, 'Oops! Page not found.'));
 });
