@@ -7,7 +7,6 @@ import {
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_SUCCESS,
   USER_UPDATE_PROFILE_ERROR,
-  USER_UPDATE_PROFILE_RESET,
 } from '../types';
 
 export const getUserDetails = (id) => async (dispatch, getState) => {

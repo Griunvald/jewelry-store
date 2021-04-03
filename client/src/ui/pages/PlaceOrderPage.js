@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { Link } from 'react-router-dom';
+import { createOrder } from '../../store/actions/orderActions';
 import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
 
-const PlaceOrderPage = () => {
+const PlaceOrderPage = ({ history }) => {
+  const dispatch = useDispatch();
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed(2);
   };
@@ -22,8 +24,28 @@ const PlaceOrderPage = () => {
     Number(cart.taxPrice)
   ).toFixed(2);
 
+  const orderCreate = useSelector((state) => state.orderCreate);
+  const { order, success, error } = orderCreate;
+
+  useEffect(() => {
+    if (success) {
+      history.push(`/order/${order._id}`);
+    }
+    // eslint-disable-next-line
+  }, [success, history]);
+
   const placeOrderHandler = () => {
-    //
+    dispatch(
+      createOrder({
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        shippingPrice: cart.shippingPrice,
+        taxPrice: cart.taxPrice,
+        totalPrice: cart.totalPrice,
+      })
+    );
   };
   return (
     <>
@@ -108,6 +130,7 @@ const PlaceOrderPage = () => {
                   <Col>{cart.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
+              <ListGroup.Item>{error && <h3>{error}</h3>}</ListGroup.Item>
               <ListGroup.Item>
                 <Button
                   tyoe="button"
