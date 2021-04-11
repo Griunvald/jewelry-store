@@ -59,3 +59,8 @@ exports.updateOrderToPaid = Async(async (req, res) => {
     res.status(404).json({ message: 'Order not found' });
   }
 });
+
+exports.getMyOrders = Async(async (req, res) => {
+  const orders = await Order.find({ user: req.user._id });
+  res.json(orders);
+});

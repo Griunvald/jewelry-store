@@ -9,7 +9,9 @@ import {
   ORDER_PAY_REQUEST,
   ORDER_PAY_SUCCESS,
   ORDER_PAY_ERROR,
-  ORDER_PAY_RESET,
+  ORDER_LIST_MY_REQUEST,
+  ORDER_LIST_MY_SUCCESS,
+  ORDER_LIST_MY_ERROR,
 } from '../types';
 
 export const createOrder = (order) => async (dispatch, getState) => {
@@ -80,6 +82,29 @@ export const payOrder = (orderId, paymentResult) => async (
   } catch (error) {
     dispatch({
       type: ORDER_PAY_ERROR,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const listMyOrders = () => async (dispatch, getState) => {
+  try {
+    dispatch({ type: ORDER_LIST_MY_REQUEST });
+    const {
+      auth: { currentUser },
+    } = getState();
+
+    const { data } = await axios.get(`/api/v1/orders/myorders`, {
+      headers: { Authorization: `Bearer ${currentUser.token}` },
+    });
+
+    dispatch({ type: ORDER_LIST_MY_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: ORDER_LIST_MY_ERROR,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
