@@ -1,25 +1,5 @@
 const mongoose = require('mongoose');
 
-const reviewSchema = mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-    },
-    rating: {
-      type: Number,
-      required: true,
-    },
-    comment: {
-      type: String,
-      required: true,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
-
 const itemSchema = mongoose.Schema(
   {
     user: {
@@ -31,25 +11,13 @@ const itemSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    image: {
-      type: String,
-      required: true,
-      unique: true,
-    },
     description: {
       type: String,
       required: true,
     },
-    details: [String],
-    reviews: [reviewSchema],
-    rating: {
-      type: Number,
+    details: {
+      type: [{ item: String }],
       required: true,
-      default: 0,
-    },
-    numReviews: {
-      type: Number,
-      // required: true,
     },
     price: {
       type: Number,
@@ -59,6 +27,10 @@ const itemSchema = mongoose.Schema(
     inStock: {
       type: Boolean,
       default: true,
+    },
+    image: {
+      type: String,
+      required: true,
     },
   },
   {

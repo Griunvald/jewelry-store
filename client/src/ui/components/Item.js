@@ -17,7 +17,7 @@ const Item = ({ item }) => {
           data-placement="right"
           title={item.title}
         >
-          <Card.Img variant="top" src={item.image} />
+          <Card.Img variant="top" src={`/images/${item.image}`} />
         </Link>
         <Card.Body>
           <Card.Title>{truncate(item.title, 30)}</Card.Title>

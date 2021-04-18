@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const authRouter = require('./routes/authRoutes');
 const itemRouter = require('./routes/itemRoutes');
 const orderRouter = require('./routes/orderRoutes');
+const uploadRouter = require('./routes/uploadRoutes');
 const connectDB = require('./config/db');
 const error = require('./middleware/error_middleware');
 
@@ -22,6 +23,7 @@ connectDB();
 app.use('/api/v1/items', itemRouter);
 app.use('/api/v1/users', authRouter);
 app.use('/api/v1/orders', orderRouter);
+app.use('/api/v1/image-upload', uploadRouter);
 
 app.get('/api/v1/config/paypal', (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);

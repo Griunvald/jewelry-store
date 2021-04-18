@@ -14,3 +14,21 @@ exports.getItem = Async(async (req, res) => {
     res.status(404).json({ message: 'Item not found' });
   }
 });
+
+exports.addItem = Async(async (req, res, next) => {
+  try {
+    const { title, description, details, image, price, inStock } = req.body;
+    const item = await Item.create({
+      user: req.user._id,
+      title,
+      description,
+      details,
+      image,
+      price,
+      inStock,
+    });
+    res.status(201).json({ message: 'Item created!', id: item._id });
+  } catch (error) {
+    console.log(error);
+  }
+});

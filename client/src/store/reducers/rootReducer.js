@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { itemsListReducer, itemDetailsReducer } from './itemReducer';
 import { cartReducer } from './cartReducer';
 import { authReducer } from './authReducer';
+import { submitFormReducer, submitImageReducer } from './adminReducer';
 import {
   orderCreateReducer,
   orderDetailsReducer,
@@ -24,6 +25,8 @@ const rootReducer = combineReducers({
   orderDetails: orderDetailsReducer,
   orderPay: orderPayReducer,
   orderMyList: orderMyListReducer,
+  adminFormSubmit: submitFormReducer,
+  adminImageSubmit: submitImageReducer,
 });
 
 export default rootReducer;

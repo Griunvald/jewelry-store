@@ -13,6 +13,7 @@ import ShippingPage from './pages/ShippingPage';
 import PaymentPage from './pages/PaymentPage';
 import PlaceOrderPage from './pages/PlaceOrderPage';
 import OrderPage from './pages/OrderPage';
+import AdminPage from './pages/AdminPage';
 import '../css/App.css';
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/placeorder" component={PlaceOrderPage} />
         <Route path="/order/:id" component={OrderPage} />
         <Route path="/item/:id" component={ItemDetailsPage} />
+        <Route path="/admin" component={AdminPage} />
       </main>
       <Footer />
     </>

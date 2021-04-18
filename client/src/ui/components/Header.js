@@ -30,6 +30,11 @@ const Header = () => {
             <LinkContainer to="/about">
               <Nav.Link onClick={() => setOpen(false)}>ABOUT</Nav.Link>
             </LinkContainer>
+            {currentUser?.email === 'admin@mail.com' ? (
+              <LinkContainer to="/admin">
+                <Nav.Link onClick={() => setOpen(false)}>DASHBOARD</Nav.Link>
+              </LinkContainer>
+            ) : null}
             <LinkContainer to="/cart">
               <Nav.Link onClick={() => setOpen(false)}>CART</Nav.Link>
             </LinkContainer>

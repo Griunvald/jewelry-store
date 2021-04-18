@@ -25,7 +25,11 @@ const ItemDetailsPage = ({ match }) => {
           <Col lg={7}>
             <div className="image-container">
               <Like />
-              <Image src={item.image} className="img-fluid" rounded />
+              <Image
+                src={`/images/${item.image}`}
+                className="img-fluid"
+                rounded
+              />
             </div>
           </Col>
           <Col lg={5}>
@@ -65,7 +69,7 @@ const ItemDetailsPage = ({ match }) => {
             <p className="item-details-title">Item details</p>
             {item.details?.map((listItem, i) => (
               <ListGroup variant="flush" key={i}>
-                <ListGroup.Item>{listItem}</ListGroup.Item>
+                <ListGroup.Item>{listItem.item}</ListGroup.Item>
               </ListGroup>
             ))}
           </Col>

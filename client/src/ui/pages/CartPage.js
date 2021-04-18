@@ -40,7 +40,12 @@ const CartPage = ({ history }) => {
                 <ListGroup.Item key={item.item}>
                   <Row>
                     <Col lg={3}>
-                      <Image src={item.image} alt={item.title} fluid rounded />
+                      <Image
+                        src={`/images/${item.image}`}
+                        alt={item.title}
+                        fluid
+                        rounded
+                      />
                     </Col>
                     <Col lg={7}>
                       <Link to={`/item/${item.item}`} className="link">
