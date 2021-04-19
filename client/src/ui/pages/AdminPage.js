@@ -146,7 +146,6 @@ const AdminPage = () => {
                 className="form-control"
                 id="price"
                 name="price"
-                placeholder="Enter item price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               ></Form.Control>

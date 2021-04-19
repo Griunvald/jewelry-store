@@ -19,7 +19,7 @@ main {
   }
 }
 header {
-  margin-bottom:50px;
+  margin-bottom: 50px;
 }
 
 /* footer */
@@ -33,30 +33,29 @@ header {
 
 /* text */
 .new-line {
-  white-space:pre-line;
+  white-space: pre-line;
 }
 
-.item-title{
+.item-title {
   line-height: 1.6 !important;
- font-family: 'Scope One', serif;
- font-size: 2rem !important;
- margin-bottom: 2rem !important;
- 
+  font-family: 'Scope One', serif;
+  font-size: 2rem !important;
+  margin-bottom: 2rem !important;
 }
 
-p{
+p {
   line-height: 1.9 !important;
 }
 
-.item-details-title{
-  font-size:1.3rem;
+.item-details-title {
+  font-size: 1.3rem;
 }
 .price-card {
   font-weight: bold;
   font-size: 15px;
 }
 
-.in-stock{
+.in-stock {
   font-weight: bold;
 }
 
@@ -64,7 +63,7 @@ p{
 
 .cart-button {
   font-size: 18px !important;
-  margin: 30px 0px
+  margin: 30px 0px;
 }
 
 /* layout */
@@ -74,25 +73,25 @@ p{
 }
 
 .card-shadow {
-  transition: box-shadow .3s;
+  transition: box-shadow 0.3s;
   float: left;
 }
 .card-shadow:hover {
-  box-shadow: 0 0 11px rgba(29, 29, 29, 0.2); 
+  box-shadow: 0 0 11px rgba(29, 29, 29, 0.2);
 }
 
 /* like button on image */
 .image-container {
   position: relative !important;
   text-align: center !important;
-  color:white !important;
+  color: white !important;
 }
 
 .heart-component {
   position: absolute;
   top: 15px;
   right: 20px;
- font-size: 40px;
+  font-size: 40px;
 }
 
 /* Link */
@@ -100,5 +99,20 @@ p{
   color: rgb(123, 122, 120) !important;
 }
 .link:hover {
+  color: #000 !important;
+}
+
+.form-link {
+  margin-left: 5px;
+}
+
+.icon-link {
+  color: rgb(123, 122, 120) !important;
+  font-size: 1rem !important;
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.icon-link:hover {
   color: #000 !important;
 }
