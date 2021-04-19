@@ -166,17 +166,17 @@ const AdminPage = () => {
                 }}
               />
             </Form.Group>
-            <Button
-              type="submit"
-              variant="dark"
-              block
-              size="lg"
-              disabled={!title || !description}
-              onClick={submit}
-            >
-              Save item
-            </Button>
           </Form>
+          <Button
+            type="submit"
+            variant="dark"
+            block
+            size="lg"
+            disabled={!title || !description}
+            onClick={submit}
+          >
+            Save item
+          </Button>
         </Col>
         <Col lg={6}>
           <Image src={image.src} fluid />
