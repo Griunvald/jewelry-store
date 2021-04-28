@@ -26,7 +26,10 @@ const SignupPage = ({ location, history }) => {
   }, [history, currentUser, redirect]);
 
   return (
-    <Container className="d-flex justify-content-center">
+    <Container
+      className="d-flex justify-content-center"
+      data-test="component-login"
+    >
       <Col xs={12} md={6}>
         <h2>Log in</h2>
         {error && <h3>{error}</h3>}
