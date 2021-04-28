@@ -18,7 +18,7 @@ import '../css/App.css';
 
 const App = () => {
   return (
-    <>
+    <div data-test="component-app">
       <Header />
       <main>
         <Route path="/" exact component={StorePage} />
@@ -35,7 +35,7 @@ const App = () => {
         <Route path="/admin" component={AdminPage} />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 
