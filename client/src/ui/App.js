@@ -19,7 +19,7 @@ import '../css/App.css';
 const App = () => {
   return (
     <div data-test="component-app">
-      <Header />
+      <Header data-test="header" />
       <main>
         <Route path="/" exact component={StorePage} />
         <Route path="/about" component={AboutPage} />
