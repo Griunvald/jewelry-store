@@ -22,11 +22,13 @@ const initialState = {
   },
   auth: { currentUser: localStorageCurrentUser },
 };
+
+export const middlewares = [thunk];
 const store = () => {
   const store = createStore(
     rootReducer,
     initialState,
-    compose(applyMiddleware(thunk), devToolsEnhancer())
+    compose(applyMiddleware(...middlewares), devToolsEnhancer())
   );
 
   return store;
