@@ -1,7 +1,7 @@
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import { findByTestAttr, storeFactory } from '../../utils/testUtils';
-import { Form, Link, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { MemoryRouter } from 'react-router-dom';
 import App from '../../ui/App';
 

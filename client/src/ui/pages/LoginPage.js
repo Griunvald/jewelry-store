@@ -10,7 +10,7 @@ const SignupPage = ({ location, history }) => {
 
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
-  const { loading, error, currentUser } = auth;
+  const { error, currentUser } = auth;
 
   const submitHandler = (e) => {
     e.preventDefault();
