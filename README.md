@@ -50,7 +50,10 @@ PAYPAL_CLIENT_ID=YOUR_PAYPAL_CLIENT_ID
 
 ## Admin user
 
-Register admin user with following email: admin@mail.com
+Log in as an admin user with the following credentials:
+
+email: admin@mail.com
+password: test1234
 
 ## Usage
 
