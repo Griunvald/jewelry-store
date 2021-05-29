@@ -73,3 +73,10 @@ From the 'Store' page go to the item details page and click the "Add to cart" bu
 - Search items by color
 - Add price range filter
 - Show liked items on the 'Favorites' page
+
+## Demo
+
+![look at this](https://github.com/Griunvald/jewelry-store/blob/main/demo/screen-1.png)
+![look at this](https://github.com/Griunvald/jewelry-store/blob/main/demo/screen-2.png)
+![look at this](https://github.com/Griunvald/jewelry-store/blob/main/demo/screen-3.png)
+![look at this](https://github.com/Griunvald/jewelry-store/blob/main/demo/screen-4.png)
